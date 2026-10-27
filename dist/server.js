@@ -80,7 +80,9 @@ app.get(BASE_URL + '/', (req, res) => {
 });
 
 // Servir archivos estáticos desde BASE_URL
-app.use(BASE_URL, express.static('public'));
+const publicDir = path.join(__dirname, 'public');
+app.use(BASE_URL, express.static(publicDir));
+app.use(express.static(publicDir, { index: false }));
 
 // Funciones de gestión de usuarios JSON
 const dataPath = path.join(__dirname, 'data', 'users.json');
