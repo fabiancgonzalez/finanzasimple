@@ -1,3 +1,5 @@
+require('dotenv').config(); // 👈 Esto debe ir arriba de todo
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -13,8 +15,8 @@ const BASE_URL = process.env.BASE_URL || '/finanzas';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER || 'ceferinomonier@gmail.com', // Cambiar por tu email
-    pass: process.env.EMAIL_PASSWORD || 'vqojsugfiprdpmlu' // Usar contraseña de aplicación de Google
+    user: process.env.EMAIL_USER || '', // Cambiar por tu email
+    pass: process.env.EMAIL_PASSWORD || '' // Usar contraseña de aplicación de Google
   }
 });
 
